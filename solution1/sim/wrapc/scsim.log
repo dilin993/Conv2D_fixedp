@@ -1,0 +1,5 @@
+   Build using "/opt/Xilinx/Vivado_HLS/2017.1/lnx64/tools/gcc/bin/g++"
+   Compiling conv.cpp_pre.cpp.tb.cpp
+   Compiling apatb_conv2Dfixp.cpp
+   Compiling conv_test.cpp_pre.cpp.tb.cpp
+cosim.tv.mk:58: recipe for target 'obj/conv_test.cpp_pre.cpp.tb.o' failed

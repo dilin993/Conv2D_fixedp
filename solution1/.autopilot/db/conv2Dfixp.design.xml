@@ -16,57 +16,57 @@
 <EstimatedClockPeriod>9.63</EstimatedClockPeriod>
 </SummaryOfTimingAnalysis>
 <SummaryOfOverallLatency>
-<Best-caseLatency>29849</Best-caseLatency>
-<Average-caseLatency>36905</Average-caseLatency>
-<Worst-caseLatency>36905</Worst-caseLatency>
-<PipelineInitiationInterval>29850 ~ 36906</PipelineInitiationInterval>
+<Best-caseLatency>2490881</Best-caseLatency>
+<Average-caseLatency>3080705</Average-caseLatency>
+<Worst-caseLatency>3670529</Worst-caseLatency>
+<PipelineInitiationInterval>2490882 ~ 3670530</PipelineInitiationInterval>
 <PipelineType>none</PipelineType>
 </SummaryOfOverallLatency>
 <SummaryOfLoopLatency>
 <Loop1>
 <Name>Loop 1</Name>
-<TripCount>28</TripCount>
-<Latency>29848 ~ 36904</Latency>
+<TripCount>256</TripCount>
+<Latency>2490880 ~ 3670528</Latency>
 <IterationLatency>
 <range>
-<min>1066</min>
-<max>1318</max>
+<min>9730</min>
+<max>14338</max>
 </range>
 </IterationLatency>
-<PipelineDepth>1066 ~ 1318</PipelineDepth>
+<PipelineDepth>9730 ~ 14338</PipelineDepth>
 <Loop1.1>
 <Name>Loop 1.1</Name>
-<TripCount>28</TripCount>
-<Latency>1064 ~ 1316</Latency>
+<TripCount>256</TripCount>
+<Latency>9728 ~ 14336</Latency>
 <IterationLatency>
 <range>
 <min>38</min>
-<max>47</max>
+<max>56</max>
 </range>
 </IterationLatency>
-<PipelineDepth>38 ~ 47</PipelineDepth>
+<PipelineDepth>38 ~ 56</PipelineDepth>
 <Loop1.1.1>
 <Name>Loop 1.1.1</Name>
 <TripCount>3</TripCount>
-<Latency>36 ~ 45</Latency>
+<Latency>36 ~ 54</Latency>
 <IterationLatency>
 <range>
 <min>12</min>
-<max>15</max>
+<max>18</max>
 </range>
 </IterationLatency>
-<PipelineDepth>12 ~ 15</PipelineDepth>
+<PipelineDepth>12 ~ 18</PipelineDepth>
 <Loop1.1.1.1>
 <Name>Loop 1.1.1.1</Name>
 <TripCount>3</TripCount>
-<Latency>9 ~ 12</Latency>
+<Latency>9 ~ 15</Latency>
 <IterationLatency>
 <range>
 <min>3</min>
-<max>4</max>
+<max>5</max>
 </range>
 </IterationLatency>
-<PipelineDepth>3 ~ 4</PipelineDepth>
+<PipelineDepth>3 ~ 5</PipelineDepth>
 </Loop1.1.1.1>
 </Loop1.1.1>
 </Loop1.1>
@@ -76,8 +76,8 @@
 <AreaEstimates>
 <Resources>
 <DSP48E>1</DSP48E>
-<FF>134</FF>
-<LUT>326</LUT>
+<FF>188</FF>
+<LUT>294</LUT>
 <BRAM_18K>0</BRAM_18K>
 </Resources>
 </AreaEstimates>
@@ -156,7 +156,7 @@
 <IOProtocol>ap_memory</IOProtocol>
 <IOConfig></IOConfig>
 <Dir>out</Dir>
-<Bits>10</Bits>
+<Bits>16</Bits>
 <Attribute>address</Attribute>
 <CType>int</CType>
 </RtlPorts>
@@ -192,7 +192,7 @@
 <IOProtocol>ap_memory</IOProtocol>
 <IOConfig></IOConfig>
 <Dir>out</Dir>
-<Bits>10</Bits>
+<Bits>16</Bits>
 <Attribute>address</Attribute>
 <CType>int</CType>
 </RtlPorts>

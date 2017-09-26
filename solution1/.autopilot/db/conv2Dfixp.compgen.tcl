@@ -11,11 +11,11 @@ set in0_width 16
 set in0_signed 1
 set in1_width 16
 set in1_signed 1
-set in2_width 28
+set in2_width 20
 set in2_signed 0
-set out_width 28
+set out_width 20
 set exp i0*i1+i2
-set arg_lists {i0 {16 1 +} i1 {16 1 +} m {28 1 +} i2 {28 0 +} p {28 1 +} c_reg {1} rnd {0} acc {0} }
+set arg_lists {i0 {16 1 +} i1 {16 1 +} m {20 1 +} i2 {20 0 +} p {20 1 +} c_reg {1} rnd {0} acc {0} }
 set TrueReset 0
 if {${::AESL::PGuard_simmodel_gen}} {
 if {[info proc ap_gen_simcore_mac] == "ap_gen_simcore_mac"} {
@@ -100,7 +100,7 @@ eval "::AESL_LIB_XILADAPTER::xil_bram_gen { \
     dir I \
     corename in_V \
     op interface \
-    ports { in_V_address0 { O 10 vector } in_V_ce0 { O 1 bit } in_V_q0 { I 16 vector } } \
+    ports { in_V_address0 { O 16 vector } in_V_ce0 { O 1 bit } in_V_q0 { I 16 vector } } \
 } "
 } else {
 puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored generation of bus interface for 'in_V'"
@@ -119,7 +119,7 @@ eval "::AESL_LIB_XILADAPTER::xil_bram_gen { \
     dir IO \
     corename out_V \
     op interface \
-    ports { out_V_address0 { O 10 vector } out_V_ce0 { O 1 bit } out_V_we0 { O 1 bit } out_V_d0 { O 16 vector } out_V_q0 { I 16 vector } } \
+    ports { out_V_address0 { O 16 vector } out_V_ce0 { O 1 bit } out_V_we0 { O 1 bit } out_V_d0 { O 16 vector } out_V_q0 { I 16 vector } } \
 } "
 } else {
 puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored generation of bus interface for 'out_V'"

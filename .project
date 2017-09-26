@@ -52,6 +52,11 @@
 			<location>/opt/Xilinx/Vivado_HLS/2017.1/include/ap_int.h</location>
 		</link>
 		<link>
+			<name>.reference/apatb_conv2Dfixp.cpp</name>
+			<type>1</type>
+			<location>/home/dilin/vivado_hls/conv2D_fixedp/solution1/sim/autowrap/systemc/apatb_conv2Dfixp.cpp</location>
+		</link>
+		<link>
 			<name>.reference/highgui.hpp</name>
 			<type>1</type>
 			<location>/opt/Xilinx/Vivado_HLS/2017.1/include/opencv2/highgui/highgui.hpp</location>

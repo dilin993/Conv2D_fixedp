@@ -13,8 +13,8 @@ entity conv2Dfixp_mac_mubkb_DSP48_0 is
 port (
     in0:  in  std_logic_vector(16 - 1 downto 0);
     in1:  in  std_logic_vector(16 - 1 downto 0);
-    in2:  in  std_logic_vector(28 - 1 downto 0);
-    dout: out std_logic_vector(28 - 1 downto 0));
+    in2:  in  std_logic_vector(20 - 1 downto 0);
+    dout: out std_logic_vector(20 - 1 downto 0));
 
 end entity;
 
@@ -32,7 +32,7 @@ c  <= signed(resize(unsigned(in2), 48));
 m  <= a * b;
 p  <= m + c;
 
-dout <= std_logic_vector(resize(unsigned(p), 28));
+dout <= std_logic_vector(resize(unsigned(p), 20));
 
 end architecture;
 

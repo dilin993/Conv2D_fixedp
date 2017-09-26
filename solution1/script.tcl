@@ -14,5 +14,5 @@ create_clock -period 10 -name default
 #source "./conv2D_fixedp/solution1/directives.tcl"
 csim_design -compiler gcc
 csynth_design
-cosim_design
+cosim_design -setup
 export_design -format ip_catalog

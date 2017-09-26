@@ -1,0 +1,5 @@
+In file included from apatb_conv2Dfixp.cpp:20:0:
+/opt/Xilinx/Vivado_HLS/2017.1/include/ap_stream.h:70:2: warning: #warning AP_STREAM macros are deprecated. Please use hls::stream<> from "hls_stream.h" instead. [-Wcpp]
+/home/dilin/vivado_hls/conv2D_fixedp/conv_test.cpp: In function ‘int main()’:
+/home/dilin/vivado_hls/conv2D_fixedp/conv_test.cpp:23:15: error: cannot convert ‘data_t* {aka ap_fixed<16, 12>*}’ to ‘ap_fixed<16, 4, (ap_q_mode)5u, (ap_o_mode)3u, 0>*’ for argument ‘1’ to ‘void AESL_WRAP_conv2Dfixp(ap_fixed<16, 4, (ap_q_mode)5u, (ap_o_mode)3u, 0>*, ap_fixed<16, 4, (ap_q_mode)5u, (ap_o_mode)3u, 0>*, ap_fixed<16, 4, (ap_q_mode)5u, (ap_o_mode)3u, 0>*)’
+make: *** [obj/conv_test.cpp_pre.cpp.tb.o] Error 1

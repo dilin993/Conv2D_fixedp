@@ -6,30 +6,14 @@
       <simLog/>
       <mgLog/>
       <packageLog/>
-      <csimLog>
-        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s)." projectName="conv2D_fixedp" solutionName="solution1" date="2017-09-26T16:12:26.644+0530"/>
-        <logs message="ERROR: [SIM 211-100] CSim failed with errors." projectName="conv2D_fixedp" solutionName="solution1" date="2017-09-26T15:51:57.164+0530"/>
-        <logs message="@E Simulation failed." projectName="conv2D_fixedp" solutionName="solution1" date="2017-09-26T15:51:57.044+0530"/>
-        <logs message="ERROR: [SIM 211-100] CSim failed with errors." projectName="conv2D_fixedp" solutionName="solution1" date="2017-09-26T15:49:33.329+0530"/>
-        <logs message="@E Simulation failed." projectName="conv2D_fixedp" solutionName="solution1" date="2017-09-26T15:49:33.327+0530"/>
-        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s)." projectName="conv2D_fixedp" solutionName="solution1" date="2017-09-26T15:38:11.070+0530"/>
-        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s)." projectName="conv2D_fixedp" solutionName="solution1" date="2017-09-26T15:30:13.966+0530"/>
-        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s)." projectName="conv2D_fixedp" solutionName="solution1" date="2017-09-26T15:23:12.633+0530"/>
-        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s)." projectName="conv2D_fixedp" solutionName="solution1" date="2017-09-26T15:20:15.016+0530"/>
-        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s)." projectName="conv2D_fixedp" solutionName="solution1" date="2017-09-26T15:05:04.316+0530"/>
-        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s)." projectName="conv2D_fixedp" solutionName="solution1" date="2017-09-26T14:48:43.488+0530"/>
-        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s)." projectName="conv2D_fixedp" solutionName="solution1" date="2017-09-26T14:45:47.189+0530"/>
-        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s)." projectName="conv2D_fixedp" solutionName="solution1" date="2017-09-26T14:41:29.127+0530"/>
-        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s)." projectName="conv2D_fixedp" solutionName="solution1" date="2017-09-26T14:40:41.907+0530"/>
-        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s)." projectName="conv2D_fixedp" solutionName="solution1" date="2017-09-26T14:37:07.272+0530"/>
-      </csimLog>
+      <csimLog/>
     </logs>
   </errorLogs>
   <warningLogs>
     <logs>
       <synLog>
-        <logs message="WARNING: [SCHED 204-21] The critical path consists of the following:&#xA;&#x9;'mul' operation ('p_Val2_1', conv2D_fixedp/conv.cpp:32) (3.36 ns)&#xA;&#x9;'add' operation ('__Val2__', conv2D_fixedp/conv.cpp:32) (3.02 ns)&#xA;&#x9;'store' operation (conv2D_fixedp/conv.cpp:32) of variable 'tmp_13', conv2D_fixedp/conv.cpp:32 on array 'out_V' (3.25 ns)" projectName="conv2D_fixedp" solutionName="solution1" date="2017-09-26T14:18:42.068+0530" type="Warning"/>
-        <logs message="WARNING: [SCHED 204-21] Estimated clock period (9.63ns) exceeds the target (target clock period: 10ns, clock uncertainty: 1.25ns, effective delay budget: 8.75ns)." projectName="conv2D_fixedp" solutionName="solution1" date="2017-09-26T14:18:42.045+0530" type="Warning"/>
+        <logs message="WARNING: [SCHED 204-21] The critical path consists of the following:&#xA;&#x9;'mul' operation ('p_Val2_1', conv2D_fixedp/conv.cpp:26) (3.36 ns)&#xA;&#x9;'add' operation ('__Val2__', conv2D_fixedp/conv.cpp:26) (3.02 ns)&#xA;&#x9;'store' operation (conv2D_fixedp/conv.cpp:26) of variable 'tmp_13', conv2D_fixedp/conv.cpp:26 on array 'out_V' (3.25 ns)" projectName="conv2D_fixedp" solutionName="solution1" date="2017-09-26T16:42:47.925+0530" type="Warning"/>
+        <logs message="WARNING: [SCHED 204-21] Estimated clock period (9.63ns) exceeds the target (target clock period: 10ns, clock uncertainty: 1.25ns, effective delay budget: 8.75ns)." projectName="conv2D_fixedp" solutionName="solution1" date="2017-09-26T16:42:47.922+0530" type="Warning"/>
       </synLog>
       <simLog/>
       <mgLog/>

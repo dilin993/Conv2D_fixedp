@@ -203,6 +203,7 @@ extern "C" {
 #7 "<command line>" 2
 #1 "<built-in>" 2
 #1 "conv2D_fixedp/conv.cpp" 2
+#1 "conv2D_fixedp/conv.h" 1
 #1 "/opt/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/ap_int.h" 1
 // -*- c++ -*-
 /*
@@ -40010,38 +40011,43 @@ struct ap_ufixed: ap_fixed_base<_AP_W, _AP_I, false, _AP_Q, _AP_O, _AP_N> {
 
 
 // 67d7842dbbe25473c3c32b93c0da8047785f30d78e8a024de1b57352245f9689
+#2 "conv2D_fixedp/conv.h" 2
+
+typedef ap_fixed<16,12> data_t;
+//typedef float data_t;
+
+
+
+
+
+void conv2Dfixp(data_t in[256*256],data_t out[256*256],data_t kernel[3*3]);
 #2 "conv2D_fixedp/conv.cpp" 2
 
-typedef ap_fixed<16,4> data_t;
-
-
-
-
-
-void conv2Dfixp(data_t in[28*28],data_t out[28*28],data_t kernel[3*3])
-{_ssdm_SpecArrayDimSize(in,28*28);_ssdm_SpecArrayDimSize(kernel,3*3);_ssdm_SpecArrayDimSize(out,28*28);
+void conv2Dfixp(data_t in[256*256],data_t out[256*256],data_t kernel[3*3])
+{_ssdm_SpecArrayDimSize(in,256*256);_ssdm_SpecArrayDimSize(kernel,3*3);_ssdm_SpecArrayDimSize(out,256*256);
  const short kCenterX = 3 / 2;
  const short kCenterY = 3 / 2;
 
- for(short i=0; i < 28; ++i) // rows
+ for(short i=0; i < 256; ++i) // rows
  {
-     for(short j=0; j < 28; ++j) // columns
+     for(short j=0; j < 256; ++j) // columns
      {
          for(short m=0; m < 3; ++m) // kernel rows
          {
-             short mm = 3 - 1 - m; // row index of flipped kernel
+             //short mm = K - 1 - m;      // row index of flipped kernel
 
              for(short n=0; n < 3; ++n) // kernel columns
              {
-                 short nn = 3 - 1 - n; // column index of flipped kernel
+                 //short nn = K - 1 - n;  // column index of flipped kernel
 
                  // index of input signal, used for checking boundary
                  short ii = i + (m - kCenterY);
                  short jj = j + (n - kCenterX);
+//
+//	                // ignore input samples which are out of bound
+                 if( ii >= 0 && ii < 256 && jj >= 0 && jj < 256 )
+                     out[i*256 +j] += in[ii*256 +jj] * kernel[3*m+n];
 
-                 // ignore input samples which are out of bound
-                 if( ii >= 0 && ii < 28 && jj >= 0 && jj < 28 )
-                     out[i*28 +j] += in[ii*3 +jj] * kernel[mm*3 +nn];
              }
          }
      }

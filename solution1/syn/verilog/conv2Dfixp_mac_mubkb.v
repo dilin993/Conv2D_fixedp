@@ -10,8 +10,8 @@
 module conv2Dfixp_mac_mubkb_DSP48_0(
     input  [16 - 1:0] in0,
     input  [16 - 1:0] in1,
-    input  [28 - 1:0] in2,
-    output [28 - 1:0]  dout);
+    input  [20 - 1:0] in2,
+    output [20 - 1:0]  dout);
 
 wire signed [25 - 1:0]     a;
 wire signed [18 - 1:0]     b;
