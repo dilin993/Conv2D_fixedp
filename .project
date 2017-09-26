@@ -62,6 +62,11 @@
 			<location>/opt/Xilinx/Vivado_HLS/2017.1/include/hls_opencv.h</location>
 		</link>
 		<link>
+			<name>.reference/types_c.h</name>
+			<type>1</type>
+			<location>/opt/Xilinx/Vivado_HLS/2017.1/include/opencv2/core/types_c.h</location>
+		</link>
+		<link>
 			<name>solution1/constraints</name>
 			<type>2</type>
 			<location>/home/dilin/vivado_hls/conv2D_fixedp/solution1/.tcls</location>

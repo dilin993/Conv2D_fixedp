@@ -1,6 +1,6 @@
 #include<ap_int.h>
 
-typedef ap_fixed<16,4> data_t;
+typedef ap_fixed<12,8> data_t;
 //typedef float data_t;
 
 #define IMGW 256
