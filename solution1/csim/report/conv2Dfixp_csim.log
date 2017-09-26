@@ -1,0 +1,19 @@
+INFO: [SIM 2] *************** CSIM start ***************
+INFO: [SIM 4] CSIM will launch GCC as the compiler.
+   Compiling ../../../conv_test.cpp in debug mode
+csim.mk:73: recipe for target 'obj/conv_test.o' failed
+In file included from /opt/Xilinx/Vivado_HLS/2017.1/include/opencv2/opencv.hpp:47:0,
+                 from /opt/Xilinx/Vivado_HLS/2017.1/include/hls_opencv.h:47,
+                 from ../../../conv_test.cpp:2:
+/opt/Xilinx/Vivado_HLS/2017.1/include/opencv2/core/core.hpp:2148:59: error: expected ‘,’ or ‘...’ before numeric constant
+/opt/Xilinx/Vivado_HLS/2017.1/include/opencv2/core/core.hpp:2146:19: error: default argument missing for parameter 7 of ‘void cv::batchDistance(cv::InputArray, cv::InputArray, cv::OutputArray, int, cv::OutputArray, int, int)’
+/opt/Xilinx/Vivado_HLS/2017.1/include/opencv2/core/core.hpp:2527:50: error: expected ‘,’ or ‘...’ before numeric constant
+/opt/Xilinx/Vivado_HLS/2017.1/include/opencv2/core/core.hpp:3873:49: error: expected ‘,’ or ‘...’ before numeric constant
+In file included from /opt/Xilinx/Vivado_HLS/2017.1/include/hls_video.h:64:0,
+                 from /opt/Xilinx/Vivado_HLS/2017.1/include/hls_opencv.h:50,
+                 from ../../../conv_test.cpp:2:
+/opt/Xilinx/Vivado_HLS/2017.1/include/hls/hls_video_fast.h: In function ‘int hls::fast_pixel_diff(hls::Window<KERNEL_SIZE, KERNEL_SIZE, SRC_T>&, SRC_T, ap_uint<2> (&)[NUM], DIFF_T (&)[NUM], int (&)[PSize][2])’:
+/opt/Xilinx/Vivado_HLS/2017.1/include/hls/hls_video_fast.h:54:9: error: expected unqualified-id before numeric constant
+make: *** [obj/conv_test.o] Error 1
+CRITICAL WARNING: [SIM 100] 'csim_design' failed: compilation error(s).
+INFO: [SIM 3] *************** CSIM finish ***************

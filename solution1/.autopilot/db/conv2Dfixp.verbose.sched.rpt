@@ -1,0 +1,484 @@
+
+
+================================================================
+== Vivado HLS Report for 'conv2Dfixp'
+================================================================
+* Date:           Tue Sep 26 14:18:42 2017
+
+* Version:        2017.1 (Build 1846317 on Fri Apr 14 19:19:38 MDT 2017)
+* Project:        conv2D_fixedp
+* Solution:       solution1
+* Product family: zynq
+* Target device:  xc7z020clg484-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|      9.63|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-------+-------+-------+-------+---------+
+    |    Latency    |    Interval   | Pipeline|
+    |  min  |  max  |  min  |  max  |   Type  |
+    +-------+-------+-------+-------+---------+
+    |  29849|  36905|  29850|  36906|   none  |
+    +-------+-------+-------+-------+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +---------------------+-------+-------+-------------+-----------+-----------+------+----------+
+        |                     |    Latency    |  Iteration  |  Initiation Interval  | Trip |          |
+        |      Loop Name      |  min  |  max  |   Latency   |  achieved |   target  | Count| Pipelined|
+        +---------------------+-------+-------+-------------+-----------+-----------+------+----------+
+        |- Loop 1             |  29848|  36904| 1066 ~ 1318 |          -|          -|    28|    no    |
+        | + Loop 1.1          |   1064|   1316|   38 ~ 47   |          -|          -|    28|    no    |
+        |  ++ Loop 1.1.1      |     36|     45|   12 ~ 15   |          -|          -|     3|    no    |
+        |   +++ Loop 1.1.1.1  |      9|     12|    3 ~ 4    |          -|          -|     3|    no    |
+        +---------------------+-------+-------+-------------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 1
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states: 9
+* Pipeline: 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+	2  / true
+2 --> 
+	3  / (!exitcond1)
+3 --> 
+	4  / (!exitcond2)
+	2  / (exitcond2)
+4 --> 
+	5  / (!exitcond3)
+	3  / (exitcond3)
+5 --> 
+	6  / true
+6 --> 
+	7  / (!exitcond)
+	4  / (exitcond)
+7 --> 
+	8  / (or_cond2)
+	9  / (!or_cond2)
+8 --> 
+	9  / true
+9 --> 
+	6  / true
+* FSM state operations: 
+
+ <State 1>: 1.77ns
+ST_1: StgValue_10 (4)  [1/1] 0.00ns
+:0  call void (...)* @_ssdm_op_SpecBitsMap([784 x i16]* %in_V), !map !33
+
+ST_1: StgValue_11 (5)  [1/1] 0.00ns
+:1  call void (...)* @_ssdm_op_SpecBitsMap([784 x i16]* %out_V), !map !39
+
+ST_1: StgValue_12 (6)  [1/1] 0.00ns
+:2  call void (...)* @_ssdm_op_SpecBitsMap([9 x i16]* %kernel_V), !map !43
+
+ST_1: StgValue_13 (7)  [1/1] 0.00ns
+:3  call void (...)* @_ssdm_op_SpecTopModule([11 x i8]* @conv2Dfixp_str) nounwind
+
+ST_1: StgValue_14 (8)  [1/1] 1.77ns  loc: conv2D_fixedp/conv.cpp:14
+:4  br label %.loopexit
+
+
+ <State 2>: 3.31ns
+ST_2: i (10)  [1/1] 0.00ns
+.loopexit:0  %i = phi i5 [ 0, %0 ], [ %i_1, %.loopexit.loopexit ]
+
+ST_2: i_cast (11)  [1/1] 0.00ns  loc: conv2D_fixedp/conv.cpp:14
+.loopexit:1  %i_cast = zext i5 %i to i6
+
+ST_2: exitcond1 (12)  [1/1] 3.31ns  loc: conv2D_fixedp/conv.cpp:14
+.loopexit:2  %exitcond1 = icmp eq i5 %i, -4
+
+ST_2: empty (13)  [1/1] 0.00ns
+.loopexit:3  %empty = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 28, i64 28, i64 28)
+
+ST_2: i_1 (14)  [1/1] 2.66ns  loc: conv2D_fixedp/conv.cpp:14
+.loopexit:4  %i_1 = add i5 %i, 1
+
+ST_2: StgValue_20 (15)  [1/1] 0.00ns  loc: conv2D_fixedp/conv.cpp:14
+.loopexit:5  br i1 %exitcond1, label %5, label %.preheader26.preheader
+
+ST_2: p_shl (17)  [1/1] 0.00ns  loc: conv2D_fixedp/conv.cpp:32
+.preheader26.preheader:0  %p_shl = call i10 @_ssdm_op_BitConcatenate.i10.i5.i5(i5 %i, i5 0)
+
+ST_2: p_shl_cast (18)  [1/1] 0.00ns  loc: conv2D_fixedp/conv.cpp:32
+.preheader26.preheader:1  %p_shl_cast = zext i10 %p_shl to i11
+
+ST_2: p_shl9 (19)  [1/1] 0.00ns  loc: conv2D_fixedp/conv.cpp:32
+.preheader26.preheader:2  %p_shl9 = call i7 @_ssdm_op_BitConcatenate.i7.i5.i2(i5 %i, i2 0)
+
+ST_2: p_shl9_cast (20)  [1/1] 0.00ns  loc: conv2D_fixedp/conv.cpp:32
+.preheader26.preheader:3  %p_shl9_cast = zext i7 %p_shl9 to i11
+
+ST_2: tmp_1 (21)  [1/1] 2.84ns  loc: conv2D_fixedp/conv.cpp:32
+.preheader26.preheader:4  %tmp_1 = sub i11 %p_shl_cast, %p_shl9_cast
+
+ST_2: StgValue_26 (22)  [1/1] 1.77ns  loc: conv2D_fixedp/conv.cpp:16
+.preheader26.preheader:5  br label %.preheader26
+
+ST_2: StgValue_27 (109)  [1/1] 0.00ns  loc: conv2D_fixedp/conv.cpp:37
+:0  ret void
+
+
+ <State 3>: 3.31ns
+ST_3: j (24)  [1/1] 0.00ns
+.preheader26:0  %j = phi i5 [ 0, %.preheader26.preheader ], [ %j_1, %.preheader26.loopexit ]
+
+ST_3: j_cast (25)  [1/1] 0.00ns  loc: conv2D_fixedp/conv.cpp:16
+.preheader26:1  %j_cast = zext i5 %j to i6
+
+ST_3: exitcond2 (26)  [1/1] 3.31ns  loc: conv2D_fixedp/conv.cpp:16
+.preheader26:2  %exitcond2 = icmp eq i5 %j, -4
+
+ST_3: empty_4 (27)  [1/1] 0.00ns
+.preheader26:3  %empty_4 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 28, i64 28, i64 28)
+
+ST_3: j_1 (28)  [1/1] 2.66ns  loc: conv2D_fixedp/conv.cpp:16
+.preheader26:4  %j_1 = add i5 %j, 1
+
+ST_3: StgValue_33 (29)  [1/1] 0.00ns  loc: conv2D_fixedp/conv.cpp:16
+.preheader26:5  br i1 %exitcond2, label %.loopexit.loopexit, label %.preheader.preheader
+
+ST_3: tmp_3_cast (31)  [1/1] 0.00ns  loc: conv2D_fixedp/conv.cpp:32
+.preheader.preheader:0  %tmp_3_cast = zext i5 %j to i11
+
+ST_3: tmp_4 (32)  [1/1] 2.86ns  loc: conv2D_fixedp/conv.cpp:32
+.preheader.preheader:1  %tmp_4 = add i11 %tmp_1, %tmp_3_cast
+
+ST_3: tmp_4_cast (33)  [1/1] 0.00ns  loc: conv2D_fixedp/conv.cpp:32
+.preheader.preheader:2  %tmp_4_cast = sext i11 %tmp_4 to i32
+
+ST_3: tmp_5 (34)  [1/1] 0.00ns  loc: conv2D_fixedp/conv.cpp:32
+.preheader.preheader:3  %tmp_5 = zext i32 %tmp_4_cast to i64
+
+ST_3: out_V_addr (35)  [1/1] 0.00ns  loc: conv2D_fixedp/conv.cpp:32
+.preheader.preheader:4  %out_V_addr = getelementptr [784 x i16]* %out_V, i64 0, i64 %tmp_5
+
+ST_3: StgValue_39 (36)  [1/1] 1.77ns  loc: conv2D_fixedp/conv.cpp:18
+.preheader.preheader:5  br label %.preheader
+
+ST_3: StgValue_40 (107)  [1/1] 0.00ns
+.loopexit.loopexit:0  br label %.loopexit
+
+
+ <State 4>: 2.45ns
+ST_4: m (38)  [1/1] 0.00ns
+.preheader:0  %m = phi i2 [ 0, %.preheader.preheader ], [ %m_1, %.preheader.loopexit ]
+
+ST_4: exitcond3 (39)  [1/1] 2.07ns  loc: conv2D_fixedp/conv.cpp:18
+.preheader:1  %exitcond3 = icmp eq i2 %m, -1
+
+ST_4: empty_5 (40)  [1/1] 0.00ns
+.preheader:2  %empty_5 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 3, i64 3, i64 3)
+
+ST_4: m_1 (41)  [1/1] 2.45ns  loc: conv2D_fixedp/conv.cpp:18
+.preheader:3  %m_1 = add i2 %m, 1
+
+ST_4: StgValue_45 (42)  [1/1] 0.00ns  loc: conv2D_fixedp/conv.cpp:18
+.preheader:4  br i1 %exitcond3, label %.preheader26.loopexit, label %1
+
+ST_4: tmp1 (45)  [1/1] 2.45ns  loc: conv2D_fixedp/conv.cpp:27
+:1  %tmp1 = add i2 %m, -1
+
+ST_4: StgValue_47 (105)  [1/1] 0.00ns
+.preheader26.loopexit:0  br label %.preheader26
+
+
+ <State 5>: 8.61ns
+ST_5: mm (44)  [1/1] 2.45ns  loc: conv2D_fixedp/conv.cpp:20
+:0  %mm = sub i2 -2, %m
+
+ST_5: tmp1_cast (46)  [1/1] 0.00ns  loc: conv2D_fixedp/conv.cpp:27
+:2  %tmp1_cast = sext i2 %tmp1 to i6
+
+ST_5: ii (47)  [1/1] 2.66ns  loc: conv2D_fixedp/conv.cpp:27
+:3  %ii = add i6 %i_cast, %tmp1_cast
+
+ST_5: tmp (48)  [1/1] 0.00ns  loc: conv2D_fixedp/conv.cpp:31 (grouped into LUT with out node tmp3)
+:4  %tmp = call i1 @_ssdm_op_BitSelect.i1.i6.i32(i6 %ii, i32 5)
+
+ST_5: rev (49)  [1/1] 0.00ns  loc: conv2D_fixedp/conv.cpp:31 (grouped into LUT with out node tmp3)
+:5  %rev = xor i1 %tmp, true
+
+ST_5: tmp_2 (50)  [1/1] 3.88ns  loc: conv2D_fixedp/conv.cpp:31
+:6  %tmp_2 = icmp slt i6 %ii, 28
+
+ST_5: tmp_6_cast (51)  [1/1] 0.00ns  loc: conv2D_fixedp/conv.cpp:32
+:7  %tmp_6_cast = sext i6 %ii to i8
+
+ST_5: p_shl1 (52)  [1/1] 0.00ns  loc: conv2D_fixedp/conv.cpp:32
+:8  %p_shl1 = call i8 @_ssdm_op_BitConcatenate.i8.i6.i2(i6 %ii, i2 0)
+
+ST_5: tmp_7 (53)  [1/1] 2.80ns  loc: conv2D_fixedp/conv.cpp:32
+:9  %tmp_7 = sub i8 %p_shl1, %tmp_6_cast
+
+ST_5: tmp_7_cast (54)  [1/1] 0.00ns  loc: conv2D_fixedp/conv.cpp:32
+:10  %tmp_7_cast = sext i8 %tmp_7 to i9
+
+ST_5: tmp_9_cast5 (55)  [1/1] 0.00ns  loc: conv2D_fixedp/conv.cpp:32
+:11  %tmp_9_cast5 = zext i2 %mm to i5
+
+ST_5: p_shl2 (56)  [1/1] 0.00ns  loc: conv2D_fixedp/conv.cpp:32
+:12  %p_shl2 = call i4 @_ssdm_op_BitConcatenate.i4.i2.i2(i2 %mm, i2 0)
+
+ST_5: p_shl2_cast (57)  [1/1] 0.00ns  loc: conv2D_fixedp/conv.cpp:32
+:13  %p_shl2_cast = zext i4 %p_shl2 to i5
+
+ST_5: tmp_3 (58)  [1/1] 2.62ns  loc: conv2D_fixedp/conv.cpp:32
+:14  %tmp_3 = sub i5 %p_shl2_cast, %tmp_9_cast5
+
+ST_5: tmp3 (59)  [1/1] 2.07ns  loc: conv2D_fixedp/conv.cpp:31 (out node of the LUT)
+:15  %tmp3 = and i1 %tmp_2, %rev
+
+ST_5: StgValue_63 (60)  [1/1] 1.77ns  loc: conv2D_fixedp/conv.cpp:22
+:16  br label %2
+
+
+ <State 6>: 2.45ns
+ST_6: n (62)  [1/1] 0.00ns
+:0  %n = phi i2 [ 0, %1 ], [ %n_1, %._crit_edge ]
+
+ST_6: exitcond (63)  [1/1] 2.07ns  loc: conv2D_fixedp/conv.cpp:22
+:1  %exitcond = icmp eq i2 %n, -1
+
+ST_6: empty_6 (64)  [1/1] 0.00ns
+:2  %empty_6 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 3, i64 3, i64 3)
+
+ST_6: n_1 (65)  [1/1] 2.45ns  loc: conv2D_fixedp/conv.cpp:22
+:3  %n_1 = add i2 %n, 1
+
+ST_6: StgValue_68 (66)  [1/1] 0.00ns  loc: conv2D_fixedp/conv.cpp:22
+:4  br i1 %exitcond, label %.preheader.loopexit, label %3
+
+ST_6: tmp2 (69)  [1/1] 2.45ns  loc: conv2D_fixedp/conv.cpp:28
+:1  %tmp2 = add i2 %n, -1
+
+ST_6: StgValue_70 (103)  [1/1] 0.00ns
+.preheader.loopexit:0  br label %.preheader
+
+
+ <State 7>: 8.72ns
+ST_7: nn (68)  [1/1] 2.45ns  loc: conv2D_fixedp/conv.cpp:24
+:0  %nn = sub i2 -2, %n
+
+ST_7: tmp2_cast (70)  [1/1] 0.00ns  loc: conv2D_fixedp/conv.cpp:28
+:2  %tmp2_cast = sext i2 %tmp2 to i6
+
+ST_7: jj (71)  [1/1] 2.66ns  loc: conv2D_fixedp/conv.cpp:28
+:3  %jj = add i6 %tmp2_cast, %j_cast
+
+ST_7: tmp_6 (72)  [1/1] 0.00ns  loc: conv2D_fixedp/conv.cpp:31 (grouped into LUT with out node or_cond2)
+:4  %tmp_6 = call i1 @_ssdm_op_BitSelect.i1.i6.i32(i6 %jj, i32 5)
+
+ST_7: rev4 (73)  [1/1] 0.00ns  loc: conv2D_fixedp/conv.cpp:31 (grouped into LUT with out node or_cond2)
+:5  %rev4 = xor i1 %tmp_6, true
+
+ST_7: tmp_8 (74)  [1/1] 3.88ns  loc: conv2D_fixedp/conv.cpp:31
+:6  %tmp_8 = icmp slt i6 %jj, 28
+
+ST_7: tmp4 (75)  [1/1] 0.00ns  loc: conv2D_fixedp/conv.cpp:31 (grouped into LUT with out node or_cond2)
+:7  %tmp4 = and i1 %tmp_8, %rev4
+
+ST_7: or_cond2 (76)  [1/1] 2.07ns  loc: conv2D_fixedp/conv.cpp:31 (out node of the LUT)
+:8  %or_cond2 = and i1 %tmp4, %tmp3
+
+ST_7: StgValue_79 (77)  [1/1] 0.00ns  loc: conv2D_fixedp/conv.cpp:31
+:9  br i1 %or_cond2, label %4, label %._crit_edge
+
+ST_7: tmp_14_cast (79)  [1/1] 0.00ns  loc: conv2D_fixedp/conv.cpp:32
+:0  %tmp_14_cast = zext i6 %jj to i9
+
+ST_7: tmp_9 (80)  [1/1] 2.80ns  loc: conv2D_fixedp/conv.cpp:32
+:1  %tmp_9 = add i9 %tmp_7_cast, %tmp_14_cast
+
+ST_7: tmp_15_cast (81)  [1/1] 0.00ns  loc: conv2D_fixedp/conv.cpp:32
+:2  %tmp_15_cast = sext i9 %tmp_9 to i32
+
+ST_7: tmp_s (82)  [1/1] 0.00ns  loc: conv2D_fixedp/conv.cpp:32
+:3  %tmp_s = zext i32 %tmp_15_cast to i64
+
+ST_7: tmp_17_cast (83)  [1/1] 0.00ns  loc: conv2D_fixedp/conv.cpp:32
+:4  %tmp_17_cast = zext i2 %nn to i5
+
+ST_7: tmp_10 (84)  [1/1] 2.66ns  loc: conv2D_fixedp/conv.cpp:32
+:5  %tmp_10 = add i5 %tmp_3, %tmp_17_cast
+
+ST_7: tmp_18_cast (85)  [1/1] 0.00ns  loc: conv2D_fixedp/conv.cpp:32
+:6  %tmp_18_cast = sext i5 %tmp_10 to i32
+
+ST_7: tmp_11 (86)  [1/1] 0.00ns  loc: conv2D_fixedp/conv.cpp:32
+:7  %tmp_11 = zext i32 %tmp_18_cast to i64
+
+ST_7: in_V_addr (87)  [1/1] 0.00ns  loc: conv2D_fixedp/conv.cpp:32
+:8  %in_V_addr = getelementptr [784 x i16]* %in_V, i64 0, i64 %tmp_s
+
+ST_7: in_V_load (88)  [2/2] 3.25ns  loc: conv2D_fixedp/conv.cpp:32
+:9  %in_V_load = load i16* %in_V_addr, align 2
+
+ST_7: kernel_V_addr (90)  [1/1] 0.00ns  loc: conv2D_fixedp/conv.cpp:32
+:11  %kernel_V_addr = getelementptr [9 x i16]* %kernel_V, i64 0, i64 %tmp_11
+
+ST_7: kernel_V_load (91)  [2/2] 2.32ns  loc: conv2D_fixedp/conv.cpp:32
+:12  %kernel_V_load = load i16* %kernel_V_addr, align 2
+
+ST_7: p_Val2_s (94)  [2/2] 3.25ns  loc: conv2D_fixedp/conv.cpp:32
+:15  %p_Val2_s = load i16* %out_V_addr, align 2
+
+
+ <State 8>: 3.25ns
+ST_8: in_V_load (88)  [1/2] 3.25ns  loc: conv2D_fixedp/conv.cpp:32
+:9  %in_V_load = load i16* %in_V_addr, align 2
+
+ST_8: kernel_V_load (91)  [1/2] 2.32ns  loc: conv2D_fixedp/conv.cpp:32
+:12  %kernel_V_load = load i16* %kernel_V_addr, align 2
+
+ST_8: p_Val2_s (94)  [1/2] 3.25ns  loc: conv2D_fixedp/conv.cpp:32
+:15  %p_Val2_s = load i16* %out_V_addr, align 2
+
+
+ <State 9>: 9.63ns
+ST_9: OP1_V (89)  [1/1] 0.00ns  loc: conv2D_fixedp/conv.cpp:32
+:10  %OP1_V = sext i16 %in_V_load to i28
+
+ST_9: OP2_V (92)  [1/1] 0.00ns  loc: conv2D_fixedp/conv.cpp:32
+:13  %OP2_V = sext i16 %kernel_V_load to i28
+
+ST_9: p_Val2_1 (93)  [1/1] 3.36ns  loc: conv2D_fixedp/conv.cpp:32
+:14  %p_Val2_1 = mul i28 %OP1_V, %OP2_V
+
+ST_9: tmp_12 (95)  [1/1] 0.00ns  loc: conv2D_fixedp/conv.cpp:32
+:16  %tmp_12 = call i28 @_ssdm_op_BitConcatenate.i28.i16.i12(i16 %p_Val2_s, i12 0)
+
+ST_9: p_Val2_2 (96)  [1/1] 3.02ns  loc: conv2D_fixedp/conv.cpp:32
+:17  %p_Val2_2 = add i28 %tmp_12, %p_Val2_1
+
+ST_9: tmp_13 (97)  [1/1] 0.00ns  loc: conv2D_fixedp/conv.cpp:32
+:18  %tmp_13 = call i16 @_ssdm_op_PartSelect.i16.i28.i32.i32(i28 %p_Val2_2, i32 12, i32 27)
+
+ST_9: StgValue_102 (98)  [1/1] 3.25ns  loc: conv2D_fixedp/conv.cpp:32
+:19  store i16 %tmp_13, i16* %out_V_addr, align 2
+
+ST_9: StgValue_103 (99)  [1/1] 0.00ns  loc: conv2D_fixedp/conv.cpp:32
+:20  br label %._crit_edge
+
+ST_9: StgValue_104 (101)  [1/1] 0.00ns  loc: conv2D_fixedp/conv.cpp:22
+._crit_edge:0  br label %2
+
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 1.77ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('i') with incoming values : ('i', conv2D_fixedp/conv.cpp:14) [10]  (1.77 ns)
+
+ <State 2>: 3.31ns
+The critical path consists of the following:
+	'phi' operation ('i') with incoming values : ('i', conv2D_fixedp/conv.cpp:14) [10]  (0 ns)
+	'icmp' operation ('exitcond1', conv2D_fixedp/conv.cpp:14) [12]  (3.31 ns)
+
+ <State 3>: 3.31ns
+The critical path consists of the following:
+	'phi' operation ('j') with incoming values : ('j', conv2D_fixedp/conv.cpp:16) [24]  (0 ns)
+	'icmp' operation ('exitcond2', conv2D_fixedp/conv.cpp:16) [26]  (3.31 ns)
+
+ <State 4>: 2.45ns
+The critical path consists of the following:
+	'phi' operation ('m') with incoming values : ('m', conv2D_fixedp/conv.cpp:18) [38]  (0 ns)
+	'add' operation ('m', conv2D_fixedp/conv.cpp:18) [41]  (2.45 ns)
+
+ <State 5>: 8.61ns
+The critical path consists of the following:
+	'add' operation ('ii', conv2D_fixedp/conv.cpp:27) [47]  (2.66 ns)
+	'icmp' operation ('tmp_2', conv2D_fixedp/conv.cpp:31) [50]  (3.88 ns)
+	'and' operation ('tmp3', conv2D_fixedp/conv.cpp:31) [59]  (2.07 ns)
+
+ <State 6>: 2.45ns
+The critical path consists of the following:
+	'phi' operation ('n') with incoming values : ('n', conv2D_fixedp/conv.cpp:22) [62]  (0 ns)
+	'add' operation ('n', conv2D_fixedp/conv.cpp:22) [65]  (2.45 ns)
+
+ <State 7>: 8.72ns
+The critical path consists of the following:
+	'add' operation ('jj', conv2D_fixedp/conv.cpp:28) [71]  (2.66 ns)
+	'add' operation ('tmp_9', conv2D_fixedp/conv.cpp:32) [80]  (2.8 ns)
+	'getelementptr' operation ('in_V_addr', conv2D_fixedp/conv.cpp:32) [87]  (0 ns)
+	'load' operation ('in_V_load', conv2D_fixedp/conv.cpp:32) on array 'in_V' [88]  (3.25 ns)
+
+ <State 8>: 3.25ns
+The critical path consists of the following:
+	'load' operation ('in_V_load', conv2D_fixedp/conv.cpp:32) on array 'in_V' [88]  (3.25 ns)
+
+ <State 9>: 9.63ns
+The critical path consists of the following:
+	'mul' operation ('p_Val2_1', conv2D_fixedp/conv.cpp:32) [93]  (3.36 ns)
+	'add' operation ('__Val2__', conv2D_fixedp/conv.cpp:32) [96]  (3.02 ns)
+	'store' operation (conv2D_fixedp/conv.cpp:32) of variable 'tmp_13', conv2D_fixedp/conv.cpp:32 on array 'out_V' [98]  (3.25 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+	State 9
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A
